@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 
-    Vector v;
+    Vector<float> v;
     v.push_back(1);
     v.push_back(2);
     v.push_back(3);
@@ -25,7 +25,8 @@ int main(){
 
     vector<int> s={1,2,3,4};
     auto end=v.end();
-    for(Vector::iterator it=v.begin()
+    cout << "Iteraror Invalidation \n";
+    for(Vector<float>::iterator it=v.begin()
                 ;it!=end;it++){
         cout << *it << " ";
         v.push_back(*it+1);

@@ -1,17 +1,18 @@
 #pragma once
 
+template <typename T>
 class Vector {
-int *data;
+T *data;
 int size;
 int capacity;
 
 public:
   Vector():data{nullptr}, size{0}, capacity{0}
   {  }
-  void  push_back(int item){{
+  void  push_back(T item){{
     if (size==capacity){
             int newcap=capacity==0?1:capacity*2;
-            int* newdata=new int[newcap];
+            T* newdata=new T[newcap];
             capacity=newcap;         
             if(data!=nullptr){
                 //move data to new array
@@ -25,10 +26,10 @@ public:
   }
 
   }
-  int operator [] (int idx) const{
+  T operator [] (int idx) const{
         return data[idx];
   }
-  int& operator [] (int idx) {
+  T& operator [] (int idx) {
         return data[idx];
   }
 
@@ -37,8 +38,8 @@ public:
 
  class iterator{
    public: 
-    iterator(int* s=nullptr):p{s}{}
-    int* p;
+    iterator(T* s=nullptr):p{s}{}
+    T* p;
     //it++
     iterator operator++(int ){
         p++;
@@ -49,7 +50,7 @@ public:
         ++p;
         return *this;
     }
-    int& operator*( ){return *p;}
+    T& operator*( ){return *p;}
     bool operator!=(iterator e){
         return e.p!=p;
     }
